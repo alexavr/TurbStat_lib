@@ -478,6 +478,8 @@ class math:
     def primes(data, window, detrend=None):
         ''' 
         Get fluctuations from raw data using mean method (DONE) and regression (COMMING SOON)
+            window:  window of average [steps]
+            detrend: None (default), mean
         '''
 
         vars = ["u","v","w","temp"]
@@ -490,14 +492,14 @@ class math:
                 else:
                     data[new_name] = data[var]
             else:
-                print(f"No {var} component found! Skipping this variable...")
+                print(f"primes: Variable {var} not found. Skipping...")
 
         return data
 
     @staticmethod
     def tke(data):
         ''' 
-        Compute TKE
+        Computes TKE
         '''
 
         if 'up' not in data.columns:
