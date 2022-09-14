@@ -14,7 +14,7 @@ conda install -c conda-forge numpy
 ```
 Then clone this repository.
 
-# Test ase
+# Test case
 
 # Todo
 1. Add test data
