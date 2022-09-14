@@ -1,6 +1,6 @@
 # *** README
 # ** INSTALLATION
-# conda create --name tower jupyter xarray dask netCDF4 bottleneck pandas matplotlib numpy -y
+# conda create --name tower jupyter -y
 # conda activate tower
 
 import pandas as pd # conda install -c conda-forge pandas
@@ -13,9 +13,9 @@ class test:
 
     @staticmethod
     def create(time_start,time_end,frequency, trend=False):
-        '''Creates data similar to real one.
+        '''Creates data similar to real high frequency data.
         time_start,time_end - YYYY-mm-DD HH:MM:SS
-        frequency in Hz
+        frequency [Hz]
         trend - add linear trend
         '''
 
@@ -45,7 +45,7 @@ class test:
 
     @staticmethod
     def gap(data, gap_start=None, gap_size=0):
-        '''Creates gap in data.
+        '''Creates artificial gap in data.
         gap_size - in steps
         '''
 
@@ -85,8 +85,9 @@ class plot:
 
     @staticmethod
     def web_accustic(data, window_min, frequency, attrs, figname):
-        ''' Plot results for web
+        ''' Plot results for web tower.ocean.ru
         for acoustic anemometer 
+        DO NOT TOUCH THIS!!!
         '''
         import matplotlib.dates as mdates
         from matplotlib.axis import Axis  
@@ -243,8 +244,9 @@ class plot:
 
     @staticmethod
     def web_meteo(data, window_min, frequency, attrs, figname):
-        ''' Plot results for web
+        ''' Plot results for web tower.ocean.ru
         for meteo (slow) data 
+        DO NOT TOUCH THIS!!!
         '''
         import matplotlib.dates as mdates
         from matplotlib.axis import Axis  
@@ -345,7 +347,8 @@ class plot:
 
     @staticmethod
     def web_accustic_stat_prep():
-        ''' Plot stat results for web
+        ''' Plot stat results for web tower.ocean.ru
+        DO NOT TOUCH THIS!!!
         '''
 
         fig = plt.figure(constrained_layout=True, figsize=(10, 5))
@@ -358,6 +361,9 @@ class plot:
     
     @staticmethod
     def web_accustic_stat(data, frequency, window, plt, ax0, ax1, label):
+        ''' Plot stat results for web tower.ocean.ru
+        DO NOT TOUCH THIS!!!
+        '''
         from scipy import signal
 
         colors = ['darkgoldenrod','black','slategrey'] # all, hist_edgecolor, quality
@@ -436,7 +442,7 @@ class data:
     @staticmethod
     def clean(df):
         '''Cleans the data:
-        * removing dublicates
+        * removing duplicates
         * sorting by time
         '''
         df = df.drop_duplicates()
@@ -471,7 +477,7 @@ class math:
     @staticmethod
     def primes(data, window, detrend=None):
         ''' 
-        Get fuluctuations from raw data using mean method and regression (COMMING SOON)
+        Get fluctuations from raw data using mean method and regression (COMMING SOON)
         '''
 
         vars = ["u","v","w","temp"]

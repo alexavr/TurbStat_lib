@@ -1,6 +1,7 @@
 *UNDER DEVELOPMENT!*
 
-Computes and plots atmospheric turbulent statistics for high frequency data. *ADD MORE HERE!*
+Computes and plots atmospheric turbulent statistics for high frequency data. 
+*ADD MORE HERE!*
 
 # Installation
 
