@@ -1,6 +1,6 @@
-Computes and plots atmospheric turbulent statistics for high frequency data. ADD MORE HERE!
-
 *UNDER DEVELOPMENT!*
+
+Computes and plots atmospheric turbulent statistics for high frequency data. ADD MORE HERE!
 
 # Installation
 
@@ -15,7 +15,11 @@ conda install -c conda-forge numpy
 Then clone this repository.
 
 # Test case
+*ADD MORE HERE!*
 
-# Todo
+# Real data case
+*ADD MORE HERE!*
+
+# Agenda
 1. Add test data
 2. 
