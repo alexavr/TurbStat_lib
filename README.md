@@ -3,7 +3,7 @@
 Computes and plots atmospheric turbulent statistics for high frequency data. 
 *ADD MORE HERE!*
 
-# Installation
+# Installation 
 
 ```bash
 conda create --name tower jupyter -y
