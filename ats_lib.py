@@ -477,7 +477,7 @@ class math:
     @staticmethod
     def primes(data, window, detrend=None):
         ''' 
-        Get fluctuations from raw data using mean method and regression (COMMING SOON)
+        Get fluctuations from raw data using mean method (DONE) and regression (COMMING SOON)
         '''
 
         vars = ["u","v","w","temp"]
