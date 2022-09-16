@@ -86,8 +86,40 @@ plt.show()
 
 
 # Real data case
-*ADD MORE HERE!*
+Dealing with the real data is almost the same. The script below reads the NetCDF of raw data (`ats.reader.netcdf`), the `ats.data.clean` is necessary to drop duplicates and set time in acceding order (in case glitches at the data-collector site). Use in every time you read the raw (L0) data. The `ats.math.primes` computes fluctuations where `window` in the average window in time steps (here window=20 mins). Data could be detrended *but now only using average value - WE NEED TO IMPROVE THAT INTO REGRESSION!*. Finally the `ats.math.tke` computes the TKE (the `data_primes` array has to have u, v and w as primes).
+
+
+```python
+import ats_lib as ats
+
+frequency=20
+filename = "./data/L0/MSU/A1/2022/09/MSU_A1_2022-09-01.nc"
+
+# Read the data
+data_raw = ats.reader.netcdf(filename)
+
+# Clean the data (in case of duplicates and time reorders)
+data = ats.data.clean(data_raw)
+
+# Get fluctuations with detrend as mean.
+data_primes = ats.math.primes(data, window=frequency*20*60, detrend="mean")
+print(data_primes)
+
+# Compute TKE
+data_tke = ats.math.tke(data_primes)
+
+print(data_tke)
+
+# plot the result:
+plt = ats.plot.simple(data_tke['tke'], label="KTE")
+plt.show()
+
+```
+
+![Alt text](./example_test_4.png "data with non-default gaps")
+
+
 
 # Agenda
-1. Add test data
+1. Add regression detrend into `ats.math.primes`
 2. 

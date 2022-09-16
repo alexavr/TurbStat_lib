@@ -481,20 +481,23 @@ class math:
             window:  window of average [steps]
             detrend: None (default), mean
         '''
+# FOW NOW PRIMES ARE COMPUTED AS A RUNNING WINDOW!
+# IT SHOULD BW CHANGED INTO JUMPING WINDOW
 
         vars = ["u","v","w","temp"]
+        data_primes = pd.DataFrame([])
 
         for var in vars:
             if var in data.columns:
-                new_name = f"{var}p"
+                # new_name = f"{var}p"
                 if detrend == 'mean':
-                    data[new_name] = data[var] - data[var].rolling(window=window).mean()
+                    data_primes[var] = data[var] - data[var].rolling(window=window).mean()
                 else:
-                    data[new_name] = data[var]
+                    data_primes[var] = data[var]
             else:
                 print(f"primes: Variable {var} not found. Skipping...")
 
-        return data
+        return data_primes
 
     @staticmethod
     def tke(data):
@@ -502,16 +505,21 @@ class math:
         Computes TKE
         '''
 
-        if 'up' not in data.columns:
-            data['up'] = 0
-        if 'vp' not in data.columns:
-            data['vp'] = 0
-        if 'wp' not in data.columns:
-            data['wp'] = 0
+        # if 'up' not in data.columns:
+        #     data['up'] = 0
+        # if 'vp' not in data.columns:
+        #     data['vp'] = 0
+        # if 'wp' not in data.columns:
+        #     data['wp'] = 0
 
-        data['tke'] = np.sqrt( data.up**2 + data.vp**2 + data.wp**2 )
+        data_tke = pd.DataFrame([])
+        try:
+            data_tke['tke'] = np.sqrt( data.u**2 + data.v**2 + data.w**2 )
+        except:
+            print("Cannot compute TKE. Missing u, v and/or w primes?")
+            data_tke = 0
 
-        return data
+        return data_tke
 
 def make_patch_spines_invisible(ax):
     ax.set_frame_on(True)
