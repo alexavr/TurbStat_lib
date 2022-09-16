@@ -36,7 +36,7 @@ plt.show()
 
 ```
 
-![Alt text](./example_test_1.png "Title")
+![Alt text](./example_test_1.png "artificial data generator")
 
 
 Create data with gaps with `ats.test.gap` the gap size of `gap_size` time steps:
@@ -60,7 +60,7 @@ plt.legend()
 plt.show()
 ```
 
-![Alt text](./example_test_2.png "Title")
+![Alt text](./example_test_2.png "data with default gap")
 
 
 By default the gap has middle location. If optional location or/and more then one gap is needed -- use `gap_start` parameter: 
@@ -81,7 +81,7 @@ plt.legend()
 plt.show()
 ```
 
-![Alt text](./example_test_3.png "Title")
+![Alt text](./example_test_3.png "data with non-default gaps")
 
 
 # Real data case
