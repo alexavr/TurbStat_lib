@@ -122,7 +122,7 @@ plt.show()
 
 # Agenda
 1. `ats.math.primes`:
-	1.1 Add regression detrend
-	1.2 Change running window into jumping window! Using pandas.
+   * 1.1 Add regression detrend
+   * 1.2 Change running window into jumping window! Using pandas.
 2. ats.math class:
-	2.1 Add other statistics
+   * 2.1 Add other statistics
