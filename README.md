@@ -86,7 +86,7 @@ plt.show()
 
 
 # Real data case
-Dealing with the real data is almost the same. The script below reads the NetCDF of raw data (`ats.reader.netcdf`), the `ats.data.clean` is necessary to drop duplicates and set time in acceding order (in case glitches at the data-collector site). Use in every time you read the raw (L0) data. The `ats.math.primes` computes fluctuations where `window` in the average window in time steps (here window=20 mins). Data could be detrended *but now only using average value - WE NEED TO IMPROVE THAT INTO REGRESSION!*. Finally the `ats.math.tke` computes the TKE (the `data_primes` array has to have u, v and w as primes).
+Dealing with the real data is almost the same. The script below reads the NetCDF of raw data (`ats.reader.netcdf`), the `ats.data.clean` is necessary to drop duplicates and set time in acceding order (in case glitches at the data-collector site) -- use it every time you read the raw (L0) data! The `ats.math.primes` computes fluctuations where `window` in the average window in time steps (here window=20 mins). Data could be detrended *but now only using average value - WE NEED TO IMPROVE THAT INTO REGRESSION!*. Finally the `ats.math.tke` computes the TKE (the `data_primes` array has to have u, v and w as primes).
 
 
 ```python
@@ -121,5 +121,8 @@ plt.show()
 
 
 # Agenda
-1. Add regression detrend into `ats.math.primes`
-2. 
+1. `ats.math.primes`:
+	1.1 Add regression detrend
+	1.2 Change running window into jumping window! Using pandas.
+2. ats.math class:
+	2.1 Add other statistics
